@@ -2,12 +2,30 @@ import kotlin.reflect.KProperty
 
 class Graph private constructor(builder: GraphBuilder) {
 
+    companion object {
+        fun build(action: (GraphBuilder) -> Unit): Graph {
+            val builder = GraphBuilder()
+            action(builder)
+            return Graph(builder)
+        }
+
+        val NON_EXISTENT_GRAPH = Graph.build { }
+        val NON_EXISTENT_VERTEX = Vertex(
+            NON_EXISTENT_GRAPH,
+            "NON_EXISTENT_GRAPH",
+            Double.NaN,
+            Double.NaN,
+            -1,
+            mutableListOf()
+        )
+    }
+
     private val vertices: Map<String, Vertex>
     private val verticesIndexed: List<Vertex>
 
-    operator fun get(name: String) = vertices[name] ?: EMPTY_VERTEX
+    operator fun get(name: String) = vertices[name] ?: NON_EXISTENT_VERTEX
 
-    operator fun get(index: Int) = if (index in this) verticesIndexed[index] else EMPTY_VERTEX
+    operator fun get(index: Int) = if (index in this) verticesIndexed[index] else NON_EXISTENT_VERTEX
 
     val size get() = vertices.size
 
@@ -20,44 +38,12 @@ class Graph private constructor(builder: GraphBuilder) {
     override fun equals(other: Any?): Boolean {
         return other != null &&
                 other is Graph &&
-                this !== EMPTY_GRAPH &&
-                other !== EMPTY_GRAPH &&
+                this !== NON_EXISTENT_GRAPH &&
+                other !== NON_EXISTENT_GRAPH &&
                 this === other
     }
 
     override fun hashCode(): Int = vertices.hashCode()
-
-    data class Vertex internal constructor(
-        val graph: Graph,
-        val name: String,
-        val x: Double,
-        val y: Double,
-        val ordinal: Int,
-        private val hasEdgesTo: MutableList<Vertex>
-    ) {
-        val edgesTo by lazy { List(hasEdgesTo.size, { hasEdgesTo[it] }).toSet() }
-
-        infix fun hasEdgeTo(other: Vertex?) = this !== EMPTY_VERTEX &&
-                other != null &&
-                other !== EMPTY_VERTEX &&
-                other in edgesTo
-
-        override fun equals(other: Any?): Boolean {
-            return this !== EMPTY_VERTEX && other !== EMPTY_VERTEX && super.equals(other)
-        }
-
-        override fun hashCode(): Int {
-            return name.hashCode() xor x.hashCode() xor y.hashCode()
-        }
-
-        infix fun distanceTo(other: Vertex): Double =
-            if (this === EMPTY_VERTEX || other === EMPTY_VERTEX)
-                Double.NaN
-            else
-                Math.sqrt((x - other.x) * (x - other.x) + (y - other.y) * (y - other.y))
-
-        override fun toString(): String = name
-    }
 
     init {
         synchronized(builder) {
@@ -89,6 +75,38 @@ class Graph private constructor(builder: GraphBuilder) {
             this.verticesIndexed = verticesList
             this.vertices = verticesMap
         }
+    }
+
+    data class Vertex internal constructor(
+        val graph: Graph,
+        val name: String,
+        val x: Double,
+        val y: Double,
+        val ordinal: Int,
+        private val hasEdgesTo: MutableList<Vertex>
+    ) {
+        val edgesTo by lazy { List(hasEdgesTo.size, { hasEdgesTo[it] }).toSet() }
+
+        infix fun hasEdgeTo(other: Vertex?) = this !== NON_EXISTENT_VERTEX &&
+                other != null &&
+                other !== NON_EXISTENT_VERTEX &&
+                other in edgesTo
+
+        override fun equals(other: Any?): Boolean {
+            return this !== NON_EXISTENT_VERTEX && other !== NON_EXISTENT_VERTEX && super.equals(other)
+        }
+
+        override fun hashCode(): Int {
+            return name.hashCode() xor x.hashCode() xor y.hashCode()
+        }
+
+        infix fun distanceTo(other: Vertex): Double =
+            if (this === NON_EXISTENT_VERTEX || other === NON_EXISTENT_VERTEX)
+                Double.NaN
+            else
+                Math.sqrt((x - other.x) * (x - other.x) + (y - other.y) * (y - other.y))
+
+        override fun toString(): String = name
     }
 
     class GraphBuilder {
@@ -149,24 +167,5 @@ class Graph private constructor(builder: GraphBuilder) {
             }
         }
     }
-
-    companion object {
-        fun build(action: (GraphBuilder) -> Unit): Graph {
-            val builder = GraphBuilder()
-            action(builder)
-            return Graph(builder)
-        }
-
-        val EMPTY_GRAPH = Graph.build { }
-        val EMPTY_VERTEX = Vertex(
-            EMPTY_GRAPH,
-            "EMPTY_VERTEX",
-            Double.NaN,
-            Double.NaN,
-            -1,
-            mutableListOf()
-        )
-    }
-
 
 }

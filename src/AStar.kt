@@ -6,11 +6,11 @@ object AStar {
     class VertexDoesntExistException(msg: String) : RuntimeException(msg)
 
     fun findPath(from: Graph.Vertex, to: Graph.Vertex): List<Graph.Vertex> {
-        if (from === Graph.EMPTY_VERTEX && to === Graph.EMPTY_VERTEX)
+        if (from === Graph.NON_EXISTENT_VERTEX && to === Graph.NON_EXISTENT_VERTEX)
             throw VertexDoesntExistException("both from and to")
-        if (from === Graph.EMPTY_VERTEX)
+        if (from === Graph.NON_EXISTENT_VERTEX)
             throw VertexDoesntExistException("from")
-        if (to === Graph.EMPTY_VERTEX)
+        if (to === Graph.NON_EXISTENT_VERTEX)
             throw VertexDoesntExistException("to")
         if (from.graph != to.graph)
             throw VerticeBelongToDifferentGraphsException("$from and $to")
