@@ -1,3 +1,5 @@
+package org.phdeh.a.astar
+
 import org.junit.Test
 
 internal class AStarTest {

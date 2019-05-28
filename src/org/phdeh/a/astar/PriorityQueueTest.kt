@@ -1,5 +1,6 @@
+package org.phdeh.a.astar
+
 import org.junit.Test
-import org.junit.jupiter.api.Assertions.*
 
 internal class PriorityQueueTest {
     @Test

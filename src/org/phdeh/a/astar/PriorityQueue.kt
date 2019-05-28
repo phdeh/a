@@ -1,5 +1,6 @@
+package org.phdeh.a.astar
+
 import java.lang.RuntimeException
-import java.util.*
 
 class PriorityQueue<T>(vararg ts: T) {
     class EmptyQueueException : RuntimeException()

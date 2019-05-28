@@ -1,3 +1,5 @@
+package org.phdeh.a.astar
+
 import kotlin.reflect.KProperty
 
 class Graph private constructor(builder: GraphBuilder) {
@@ -9,7 +11,7 @@ class Graph private constructor(builder: GraphBuilder) {
             return Graph(builder)
         }
 
-        val NON_EXISTENT_GRAPH = Graph.build { }
+        val NON_EXISTENT_GRAPH = build { }
         val NON_EXISTENT_VERTEX = Vertex(
             NON_EXISTENT_GRAPH,
             "NON_EXISTENT_GRAPH",

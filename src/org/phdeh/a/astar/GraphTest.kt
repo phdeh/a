@@ -1,5 +1,6 @@
+package org.phdeh.a.astar
+
 import org.junit.Test
-import java.lang.Exception
 
 internal class GraphTest {
     @Test

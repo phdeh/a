@@ -1,3 +1,5 @@
+package org.phdeh.a.astar
+
 import java.lang.Exception
 
 infix fun <A, B> A.shouldBe(other: B) {
