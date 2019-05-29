@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.phdeh.a.astar.PriorityQueueTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2019-05-29T13:51:44" hostname="MacBook-Pro-MacBook.local" time="0.001">
+  <properties/>
+  <testcase name="notEmptyQueue" classname="org.phdeh.a.astar.PriorityQueueTest" time="0.0"/>
+  <testcase name="startValues" classname="org.phdeh.a.astar.PriorityQueueTest" time="0.0"/>
+  <testcase name="emptyQueue" classname="org.phdeh.a.astar.PriorityQueueTest" time="0.0"/>
+  <testcase name="priorityTest" classname="org.phdeh.a.astar.PriorityQueueTest" time="0.0"/>
+  <testcase name="emptyQueuePop" classname="org.phdeh.a.astar.PriorityQueueTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.phdeh.a.astar.GraphTest" tests="16" skipped="0" failures="0" errors="0" timestamp="2019-05-29T13:51:44" hostname="MacBook-Pro-MacBook.local" time="0.025">
+  <properties/>
+  <testcase name="containsNameA" classname="org.phdeh.a.astar.GraphTest" time="0.013"/>
+  <testcase name="impossibleDistanceTest" classname="org.phdeh.a.astar.GraphTest" time="0.0"/>
+  <testcase name="sizeOfGraph" classname="org.phdeh.a.astar.GraphTest" time="0.002"/>
+  <testcase name="explicitNaming" classname="org.phdeh.a.astar.GraphTest" time="0.0"/>
+  <testcase name="distanceTest" classname="org.phdeh.a.astar.GraphTest" time="0.0"/>
+  <testcase name="nonExistingVerticesAreNotEqual" classname="org.phdeh.a.astar.GraphTest" time="0.001"/>
+  <testcase name="dDoesntExists" classname="org.phdeh.a.astar.GraphTest" time="0.0"/>
+  <testcase name="aConnectedToB" classname="org.phdeh.a.astar.GraphTest" time="0.001"/>
+  <testcase name="correctValues" classname="org.phdeh.a.astar.GraphTest" time="0.0"/>
+  <testcase name="backtracking" classname="org.phdeh.a.astar.GraphTest" time="0.001"/>
+  <testcase name="emptyGraphTest" classname="org.phdeh.a.astar.GraphTest" time="0.0"/>
+  <testcase name="duplicatingName" classname="org.phdeh.a.astar.GraphTest" time="0.0"/>
+  <testcase name="edgesAreCorrect" classname="org.phdeh.a.astar.GraphTest" time="0.001"/>
+  <testcase name="aNotConnectedToB" classname="org.phdeh.a.astar.GraphTest" time="0.0"/>
+  <testcase name="commutativeConnection" classname="org.phdeh.a.astar.GraphTest" time="0.0"/>
+  <testcase name="indices" classname="org.phdeh.a.astar.GraphTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
