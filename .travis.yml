@@ -5,5 +5,5 @@ jdk:
   - oraclejdk8
 
 script:
-  - gradle wrapper --gradle-version 5.4.1
-  - gradle test
+  - ./gradlew wrapper --gradle-version=5.4.1 --distribution-type=bin
+  - ./gradlew test
