@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.phdeh.a.astar.AStarTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2019-05-29T13:51:44" hostname="MacBook-Pro-MacBook.local" time="0.005">
+<testsuite name="org.phdeh.a.astar.AStarTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2019-05-29T14:38:49" hostname="MacBook-Pro-MacBook.local" time="0.005">
   <properties/>
-  <testcase name="findShortestPath" classname="org.phdeh.a.astar.AStarTest" time="0.0"/>
-  <testcase name="fromAToA" classname="org.phdeh.a.astar.AStarTest" time="0.001"/>
-  <testcase name="nonExistingVerticesTo" classname="org.phdeh.a.astar.AStarTest" time="0.001"/>
-  <testcase name="findPath" classname="org.phdeh.a.astar.AStarTest" time="0.0"/>
-  <testcase name="differentGraphs" classname="org.phdeh.a.astar.AStarTest" time="0.001"/>
-  <testcase name="nonExistingVerticesBothFromAndTo" classname="org.phdeh.a.astar.AStarTest" time="0.0"/>
+  <testcase name="findShortestPath" classname="org.phdeh.a.astar.AStarTest" time="0.001"/>
+  <testcase name="fromAToA" classname="org.phdeh.a.astar.AStarTest" time="0.0"/>
+  <testcase name="nonExistingVerticesTo" classname="org.phdeh.a.astar.AStarTest" time="0.0"/>
+  <testcase name="findPath" classname="org.phdeh.a.astar.AStarTest" time="0.001"/>
+  <testcase name="differentGraphs" classname="org.phdeh.a.astar.AStarTest" time="0.0"/>
+  <testcase name="nonExistingVerticesBothFromAndTo" classname="org.phdeh.a.astar.AStarTest" time="0.001"/>
   <testcase name="wayDoesntExist" classname="org.phdeh.a.astar.AStarTest" time="0.001"/>
   <testcase name="nonExistingVerticesFrom" classname="org.phdeh.a.astar.AStarTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
