@@ -5,4 +5,5 @@ jdk:
   - oraclejdk8
 
 script:
-  - gradle --version
+  - gradle wrapper --gradle-version 5.4.1
+  - gradle test
