@@ -87,12 +87,15 @@ object Window : JFrame("AStar Test") {
                 }
 
                 val paths = AStar.findAllPaths(graph[start.name], graph[stop.name])
+                val colors = ColorLobby()
+                clearSolution()
                 paths.forEach {
+                    val color = colors.get()
                     it.forEachPair { a, b ->
                         edges.forEach {
                             if (it.from.name == a.name && it.to.name == b.name ||
                                 it.from.name == b.name && it.to.name == a.name)
-                                it.shortest = true
+                                it.addColor(color)
                         }
                     }
                 }
@@ -152,7 +155,10 @@ object Window : JFrame("AStar Test") {
             if (it.rightButtonReleased) {
                 val node = findCursorNode(it.x, it.y)
                 if (node != null) {
-                    edges += Edge(node, cn, this)
+                    val nodes = mutableListOf(node, cn)
+                    if ((node.x < cn.x) xor (node.y < cn.y))
+                        nodes.reverse()
+                    edges += Edge(nodes.first(), nodes.last(), this)
                 }
                 currentNode = null
             }
