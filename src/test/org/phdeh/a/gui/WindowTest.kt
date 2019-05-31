@@ -1,7 +1,6 @@
 package org.phdeh.a.gui
 
 import org.junit.Test
-import org.junit.jupiter.api.Assertions.*
 import org.phdeh.a.astar.shouldBe
 import org.phdeh.a.astar.shouldNotBe
 import java.awt.GraphicsEnvironment
