@@ -24,6 +24,8 @@ object Window : JFrame("AStar Test") {
 
     val nodeFont = Font("Helvetica", Font.BOLD, 40)
 
+    val cursorOnScreen = Vector()
+
     val camera = Vector()
     val screen = Screen(camera, this)
 
@@ -43,6 +45,7 @@ object Window : JFrame("AStar Test") {
     val deleteCorner = 100
     val lineWidth = 6
     val selectDistance = 25
+    val wheelMultiplier = 5
 
     var state = WindowState.NONE
 
@@ -106,8 +109,8 @@ object Window : JFrame("AStar Test") {
 
         if (it.horisontalWheel != 0 || it.verticalWheel != 0)
             shouldRepaint = true
-        camera.x += it.horisontalWheel * 5
-        camera.y += it.verticalWheel * 5
+        camera.x += it.horisontalWheel * wheelMultiplier
+        camera.y += it.verticalWheel * wheelMultiplier
 
         if (it.leftButtonPressed) {
             clearSolution()
@@ -136,10 +139,12 @@ object Window : JFrame("AStar Test") {
 
         if (it.rightButtonPressed) {
             val node = findCursorNode(it.x, it.y)
-            if (node != null) {
+            if (node != null)
                 clearSolution()
-                currentNode = node
-            }
+            else
+                removeEdgesAt(it.x, it.y)
+            currentNode = node
+            shouldRepaint = true
         }
 
         val cn = currentNode
@@ -244,6 +249,46 @@ object Window : JFrame("AStar Test") {
         return close
     }
 
+    fun removeEdgesAt(x: Int, y: Int) {
+//        val r = screen
+//
+//        val dx = (-r.width / 2 + r.x).toInt()
+//        val dy = (-r.height / 2 + r.y).toInt()
+//
+//        val delete = mutableListOf<Edge>()
+//
+//        edges.forEach {
+//            val x1 = it.from.x.toInt() - dx
+//            val y1 = it.from.y.toInt() - dy
+//
+//            val x2 = it.to.x.toInt() - dx
+//            val y2 = it.to.y.toInt() - dy
+//
+//            val x3 = x2 - x1
+//            val y3 = y2 - y1
+//
+//            val a = Math.atan2(it.to.y - it.from.y, it.to.x - it.from.x)
+//
+//            val mx = x - x1
+//            val my = y - y2
+//
+//            val mx1 = mx * Math.cos(a) + my * Math.sin(a)
+//            val my1 = mx * Math.sin(a) + my * Math.cos(a)
+//
+//            cursorOnScreen.x = mx.toDouble()
+//            cursorOnScreen.y = my.toDouble()
+//            println("$mx1:$my1")
+//            println("$mx:$my")
+//
+//            val x5 = Math.sqrt(x3 * x3 + y3 * y3 + 0.0) / 2
+//
+//            if (Math.abs(my1) < 10 && Math.abs(mx1 - x5) < x5)
+//                delete += it
+//        }
+//
+//        edges.removeAll { it in delete }
+    }
+
     ///////
 
     override fun paint(g: Graphics) {
@@ -276,6 +321,8 @@ object Window : JFrame("AStar Test") {
         g2.font = nodeFont
         g2.setRenderingHints(rh)
         draw(g2)
+//        g2.color = BLACK
+//        g2.fillRect(cursorOnScreen.x.toInt() - 25, cursorOnScreen.y.toInt() - 25, 50, 50)
         g.drawImage(r, 0, 0, this)
     }
 

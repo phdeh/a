@@ -9,5 +9,5 @@ infix fun <A, B> A.shouldBe(other: B) {
 
 infix fun <A, B> A.shouldNotBe(other: B) {
     if (this == other)
-        throw Exception("$this should be $other")
+        throw Exception("$this should not be $other")
 }

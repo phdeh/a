@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.phdeh.a.astar.PriorityQueueTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2019-05-29T14:38:49" hostname="MacBook-Pro-MacBook.local" time="0.001">
+<testsuite name="org.phdeh.a.astar.PriorityQueueTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2019-05-29T14:59:12" hostname="MacBook-Pro-MacBook.local" time="0.001">
   <properties/>
   <testcase name="notEmptyQueue" classname="org.phdeh.a.astar.PriorityQueueTest" time="0.0"/>
   <testcase name="startValues" classname="org.phdeh.a.astar.PriorityQueueTest" time="0.0"/>
