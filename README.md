@@ -12,4 +12,4 @@
 8. Создать отчет по курсовому проектировании. √
 
 ### Пояснительная записка к курсовому проекту
-https://github.com/phdeh/a/raw/master/report_8.pdf
+https://github.com/phdeh/a/raw/master/report.pdf
